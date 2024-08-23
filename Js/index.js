@@ -1,18 +1,26 @@
 // alert("This page is still being developed")
-let myLeads = ["www.cars.com", "www.cats.com", "www.pizza.com"]
+let myLeads = []
 const inputEl = document.querySelector("#input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.querySelector("#ul-el")
-let listItems = ""
-console.log(ulEl)
+
 inputBtn.addEventListener("click", function() {
     myLeads.push(inputEl.value)
-    console.log(myLeads)
+    renderLeads()
+    inputEl.value = ""
 })
 
-for(i = 0; i < myLeads.length; i++) {
-    console.log(myLeads[i])
-    listItems += "<li>" + myLeads[i] + "</li>"
-    
+function renderLeads() {
+    let listItems = ""
+    for(i = 0; i < myLeads.length; i++) {
+        listItems += 
+        `<li>
+            <a target='_blank' href='${myLeads[i]}'>
+                ${myLeads[i]}
+            </a>
+        </li>`
+        
+        console.log(listItems)
+    }
+    ulEl.innerHTML = listItems
 }
-
