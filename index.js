@@ -1,4 +1,4 @@
-// alert("This page is still being developed")
+alert("This page is still being developed")
 let myLeads = []
 const inputEl = document.querySelector("#input-el")
 const inputBtn = document.getElementById("input-btn")
