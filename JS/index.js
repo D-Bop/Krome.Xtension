@@ -12,7 +12,7 @@ if(leadsFromLocalStorage) {
     renderLeads()
 }
 
-deleteBtn.addEventListener("click", function() {
+deleteBtn.addEventListener("dblclick", function() {
     console.log("doubleclicked")
 })
 
