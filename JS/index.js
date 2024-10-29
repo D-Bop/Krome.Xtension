@@ -4,6 +4,7 @@ const inputEl = document.querySelector("#input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.querySelector("#ul-el")
 const deleteBtn = document.querySelector("#delete-btn")
+const tabBtn = document.querySelector("#tab-btn")
 
 const leadsFromLocalStorage = JSON.parse (localStorage.getItem("myLeads"))
 
@@ -12,6 +13,9 @@ if(leadsFromLocalStorage) {
     render(myLeads)
 }
 
+tabBtn.addEventListener("click", function(){
+    console.log("www.cars.com")
+})
 function render(leads) {
     let listItems = ""
     for(i = 0; i < leads.length; i++) {
@@ -29,19 +33,16 @@ function render(leads) {
 
 
 deleteBtn.addEventListener("click", e => {
-    console.log("doubleclicked")
     localStorage.clear()
     myLeads = []
     render(myLeads)
 })
 
 inputBtn.addEventListener("click", e => {
-    
     myLeads.push(inputEl.value)
     inputEl.value = ""
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
     render(myLeads)
     console.log(localStorage.getItem("myLeads"))
-    
 })
 
