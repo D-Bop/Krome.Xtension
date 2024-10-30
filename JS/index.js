@@ -13,9 +13,18 @@ if(leadsFromLocalStorage) {
     render(myLeads)
 }
 
+
 tabBtn.addEventListener("click", function(){
-    console.log("www.cars.com")
+
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myleads", JSON.stringify(myLeads))
+        render(myLeads)
+
+    })
+
 })
+
 function render(leads) {
     let listItems = ""
     for(i = 0; i < leads.length; i++) {
