@@ -13,16 +13,12 @@ if(leadsFromLocalStorage) {
     render(myLeads)
 }
 
-
 tabBtn.addEventListener("click", function(){
-
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
         myLeads.push(tabs[0].url)
-        localStorage.setItem("myleads", JSON.stringify(myLeads))
+        localStorage.setItem("myLeads", JSON.stringify(myLeads))
         render(myLeads)
-
     })
-
 })
 
 function render(leads) {
@@ -54,4 +50,3 @@ inputBtn.addEventListener("click", e => {
     render(myLeads)
     console.log(localStorage.getItem("myLeads"))
 })
-
